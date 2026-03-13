@@ -12,7 +12,7 @@ cloudinary.config({
   api_secret: process.env.Cloud_Api_Secret!,
 });
 const app = express();
-app.use(express.json)
+app.use(express.json())
 
 const PORT = process.env.PORT || 7000
 
