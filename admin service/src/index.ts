@@ -2,10 +2,17 @@ import express from "express"
 import dotenv from "dotenv"
 import { sql } from "./config/db.js";
 import adminRoutes from "./route.js"
+import { v2 as cloudinary } from "cloudinary";
 
 dotenv.config()
 
+cloudinary.config({
+  cloud_name: process.env.Cloud_Name!,
+  api_key: process.env.Cloud_Api_Key!,
+  api_secret: process.env.Cloud_Api_Secret!,
+});
 const app = express();
+app.use(express.json)
 
 const PORT = process.env.PORT || 7000
 
