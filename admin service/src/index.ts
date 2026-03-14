@@ -4,6 +4,7 @@ import { sql } from "./config/db.js";
 import adminRoutes from "./route.js"
 import { v2 as cloudinary } from "cloudinary";
 import { createClient } from "redis";
+import cors from "cors"
 
 dotenv.config()
 
@@ -27,6 +28,8 @@ cloudinary.config({
 });
 const app = express();
 app.use(express.json())
+
+app.use(cors());
 
 const PORT = process.env.PORT || 7000
 
